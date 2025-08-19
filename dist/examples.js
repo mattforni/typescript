@@ -23,4 +23,24 @@ console.log(greeting);
 async function getFavoriteNumber() {
     return Math.random() * 100;
 }
+function printCoord(p) {
+    console.log("The coordinate's x value is " + p.x);
+    console.log("The coordinate's y value is " + p.y);
+}
+printCoord({ x: 100, y: 150 });
+function printCoord2D(p) {
+    console.log("The coordinate's x value is " + p.x);
+    console.log("The coordinate's y value is " + p.y);
+}
+function printCoord3D(p) {
+    console.log("The coordinate's x value is " + p.x);
+    console.log("The coordinate's y value is " + p.y);
+    console.log("The coordinate's z value is " + p.z);
+}
+printCoord3D({ x: 1, y: 2, z: 3 });
+function setPosition(position) {
+    console.log(`Setting position to ${position}`);
+}
+setPosition("left");
+// setPosition("centre"); Not valid
 //# sourceMappingURL=examples.js.map

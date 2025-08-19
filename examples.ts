@@ -25,3 +25,51 @@ console.log(greeting);
 async function getFavoriteNumber(): Promise<number> {
     return Math.random() * 100;
 }
+
+/**
+ * We can also use type aliases to create more complex types.
+ */
+type Point = {
+  x: number;
+  y: number;
+};
+
+function printCoord(p: Point) {
+  console.log("The coordinate's x value is " + p.x);
+  console.log("The coordinate's y value is " + p.y);
+}
+
+printCoord({ x: 100, y: 150 }) ;
+
+/**
+ * Interfaces work similarly to type aliases, but they can be extended.
+ */
+interface Point2D {
+  x: number;
+  y: number;
+}
+
+function printCoord2D(p: Point2D) {
+  console.log("The coordinate's x value is " + p.x);
+  console.log("The coordinate's y value is " + p.y);
+}
+
+interface Point3D extends Point2D {
+  z: number;
+}
+
+function printCoord3D(p: Point3D) {
+  console.log("The coordinate's x value is " + p.x);
+  console.log("The coordinate's y value is " + p.y);
+  console.log("The coordinate's z value is " + p.z);
+}
+
+printCoord3D({ x: 1, y: 2, z: 3 });
+
+type Position = "left" | "right" | "center";
+function setPosition(position: Position) {
+  console.log(`Setting position to ${position}`);
+}
+
+setPosition("left");
+// setPosition("centre"); Not valid
