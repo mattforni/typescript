@@ -73,3 +73,51 @@ function setPosition(position: Position) {
 
 setPosition("left");
 // setPosition("centre"); Not valid
+
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Bear = { swim: () => void; hibernate: () => void };
+
+function act(animal: Fish | Bird | Bear) {
+  if ("swim" in animal) {
+    if ("hibernate" in animal) {
+      return animal.hibernate();
+    }
+    return animal.swim();
+  }
+
+  return animal.fly();
+}
+
+// This acts as a user defined type guard due to the type predicate
+function isBear(animal: Fish | Bird | Bear): animal is Bear {
+  return (animal as Bear).hibernate !== undefined;
+}
+
+function hibernate(animal: Fish | Bird | Bear) {
+  if (isBear(animal)) {
+    return animal.hibernate();
+  }
+
+  return; // None of the other animals know how to hibernate
+}
+
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+type Shape = Circle | Square;
+
+function getArea(shape: Shape) {
+  if (shape.kind === "circle") {
+    return Math.PI * shape.radius! ** 2;
+  }
+}
+
+// In this case, `kind` is a discriminant property of `Shape`, which tells us what type of shape it is.
