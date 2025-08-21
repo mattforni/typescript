@@ -40,6 +40,16 @@ Comprehensive guide to functions in TypeScript including:
 - **Function Properties**: Adding custom properties to functions
 - **Higher-Order Functions**: Functions that take or return other functions
 
+### [TypeScript Objects](markdown/objects.md)
+Comprehensive guide to objects and object types in TypeScript including:
+- **Object Types**: Anonymous types, interfaces, and type aliases for defining object structures
+- **Property Modifiers**: Optional properties with `?` and readonly properties
+- **Index Signatures**: Dynamic property access patterns and dictionary types
+- **Excess Property Checks**: TypeScript's strict object literal validation
+- **Extending Types**: Interface inheritance and composition with `extends`
+- **Intersection Types**: Combining multiple types with the `&` operator
+- **Tuples**: Fixed-length arrays with specific type positions
+
 ## 🚀 Getting Started
 
 To compile TypeScript files, use the TypeScript compiler:
