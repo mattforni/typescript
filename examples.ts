@@ -102,6 +102,7 @@ function hibernate(animal: Fish | Bird | Bear) {
   return; // None of the other animals know how to hibernate
 }
 
+// In this case, `kind` is a discriminant property of `Shape`, which tells us what type of shape it is.
 interface Circle {
   kind: "circle";
   radius: number;
@@ -120,4 +121,58 @@ function getArea(shape: Shape) {
   }
 }
 
-// In this case, `kind` is a discriminant property of `Shape`, which tells us what type of shape it is.
+/*************
+ * Functions *
+ *************/
+
+// This is a *call signature*
+type FunctionWithProperties = {
+  (num: number): boolean;
+  property: string;
+}
+
+function actOnCallFunction(fn: FunctionWithProperties) {
+  console.log(`${fn.name} has a property called ${fn.property} and returns ${fn(10)}`);
+}
+
+function greaterThan10(num: number): boolean {
+  return num > 10;
+}
+greaterThan10.property = "dat property";
+
+actOnCallFunction(greaterThan10);
+
+// This is a *construct signature*
+type ObjectWithNum = {
+  num: number;
+}
+
+type FunctionWithConstructSignature = {
+  new (num: number): ObjectWithNum;
+}
+
+function actOnConstructFunction(constructor: FunctionWithConstructSignature) {
+  const obj = new constructor(10);
+  console.log(`We created an object with a num property of ${obj.num}`);
+  return obj;
+}
+
+// `T` is a *type parameter* that links the input and output of this function
+function firstElement<T>(array: T[]): T | undefined {
+  return array[0];
+}
+
+// The *type parameter* can be constrained by adding an `extends` clause
+function longest<T extends { length: number }>(a: T, b: T) {
+  if (a.length < b.length) { return b; }
+  return a;
+}
+
+longest([1, 2, 3], [4, 5]);
+longest("hello", "world");
+
+// This function literal is valid, but the return type is not
+let fn = function(a: number): void {
+  // @ts-expect-error
+  return a;
+}

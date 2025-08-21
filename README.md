@@ -22,6 +22,24 @@ Explores the TypeScript type system including:
 - **Type Assertions**: Converting between compatible types
 - **Literal Types**: Specific value types for precise control
 
+### [TypeScript Narrowing](markdown/narrowing.md)
+Advanced type narrowing techniques including:
+- **Type Guards**: Custom functions that narrow types at runtime
+- **Discriminated Unions**: Using literal properties to distinguish between types
+- **Control Flow Analysis**: How TypeScript narrows types through conditional statements
+- **Type Predicates**: Using `is` keyword for custom type guards
+- **Exhaustiveness Checking**: Ensuring all union type cases are handled
+- **Narrowing with `in` operator**: Checking for property existence
+
+### [TypeScript Functions](markdown/functions.md)
+Comprehensive guide to functions in TypeScript including:
+- **Function Types**: Call signatures, construct signatures, and function type expressions
+- **Generic Functions**: Type parameters and constraints for reusable function logic
+- **Function Overloads**: Multiple function signatures for different parameter combinations
+- **Contextual Typing**: How TypeScript infers types in function expressions
+- **Function Properties**: Adding custom properties to functions
+- **Higher-Order Functions**: Functions that take or return other functions
+
 ## 🚀 Getting Started
 
 To compile TypeScript files, use the TypeScript compiler:

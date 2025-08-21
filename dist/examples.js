@@ -42,5 +42,58 @@ function setPosition(position) {
     console.log(`Setting position to ${position}`);
 }
 setPosition("left");
-// setPosition("centre"); Not valid
+function act(animal) {
+    if ("swim" in animal) {
+        if ("hibernate" in animal) {
+            return animal.hibernate();
+        }
+        return animal.swim();
+    }
+    return animal.fly();
+}
+// This acts as a user defined type guard due to the type predicate
+function isBear(animal) {
+    return animal.hibernate !== undefined;
+}
+function hibernate(animal) {
+    if (isBear(animal)) {
+        return animal.hibernate();
+    }
+    return; // None of the other animals know how to hibernate
+}
+function getArea(shape) {
+    if (shape.kind === "circle") {
+        return Math.PI * shape.radius ** 2;
+    }
+}
+function actOnCallFunction(fn) {
+    console.log(`${fn.name} has a property called ${fn.property} and returns ${fn(10)}`);
+}
+function greaterThan10(num) {
+    return num > 10;
+}
+greaterThan10.property = "dat property";
+actOnCallFunction(greaterThan10);
+function actOnConstructFunction(constructor) {
+    const obj = new constructor(10);
+    console.log(`We created an object with a num property of ${obj.num}`);
+}
+// `T` is a *type parameter* that links the input and output of this function
+function firstElement(array) {
+    return array[0];
+}
+// The *type parameter* can be constrained by adding an `extends` clause
+function longest(a, b) {
+    if (a.length < b.length) {
+        return b;
+    }
+    return a;
+}
+longest([1, 2, 3], [4, 5]);
+longest("hello", "world");
+// This function literal is valid, but the return type is not
+let fn = function (a) {
+    // @ts-expect-error
+    return a;
+};
 //# sourceMappingURL=examples.js.map

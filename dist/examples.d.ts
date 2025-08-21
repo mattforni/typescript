@@ -28,3 +28,50 @@ interface Point3D extends Point2D {
 declare function printCoord3D(p: Point3D): void;
 type Position = "left" | "right" | "center";
 declare function setPosition(position: Position): void;
+type Fish = {
+    swim: () => void;
+};
+type Bird = {
+    fly: () => void;
+};
+type Bear = {
+    swim: () => void;
+    hibernate: () => void;
+};
+declare function act(animal: Fish | Bird | Bear): void;
+declare function isBear(animal: Fish | Bird | Bear): animal is Bear;
+declare function hibernate(animal: Fish | Bird | Bear): void;
+interface Circle {
+    kind: "circle";
+    radius: number;
+}
+interface Square {
+    kind: "square";
+    sideLength: number;
+}
+type Shape = Circle | Square;
+declare function getArea(shape: Shape): number | undefined;
+/*************
+ * Functions *
+ *************/
+type FunctionWithProperties = {
+    (num: number): boolean;
+    property: string;
+};
+declare function actOnCallFunction(fn: FunctionWithProperties): void;
+declare function greaterThan10(num: number): boolean;
+declare namespace greaterThan10 {
+    var property: string;
+}
+type ObjectWithNum = {
+    num: number;
+};
+type FunctionWithConstructSignature = {
+    new (num: number): ObjectWithNum;
+};
+declare function actOnConstructFunction(constructor: FunctionWithConstructSignature): void;
+declare function firstElement<T>(array: T[]): T | undefined;
+declare function longest<T extends {
+    length: number;
+}>(a: T, b: T): T;
+declare let fn: (a: number) => void;
