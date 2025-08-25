@@ -69,9 +69,11 @@ type ObjectWithNum = {
 type FunctionWithConstructSignature = {
     new (num: number): ObjectWithNum;
 };
-declare function actOnConstructFunction(constructor: FunctionWithConstructSignature): void;
+declare function actOnConstructFunction(constructor: FunctionWithConstructSignature): ObjectWithNum;
 declare function firstElement<T>(array: T[]): T | undefined;
 declare function longest<T extends {
     length: number;
 }>(a: T, b: T): T;
 declare let fn: (a: number) => void;
+declare let s: string;
+declare let u: typeof s;

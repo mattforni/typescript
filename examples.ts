@@ -176,3 +176,7 @@ let fn = function(a: number): void {
   // @ts-expect-error
   return a;
 }
+
+let s = "Hello World!";
+let u: typeof s = "I am alive!";
+console.log(`String '${u}' is of type ${typeof s}`);

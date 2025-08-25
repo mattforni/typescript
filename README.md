@@ -50,6 +50,16 @@ Comprehensive guide to objects and object types in TypeScript including:
 - **Intersection Types**: Combining multiple types with the `&` operator
 - **Tuples**: Fixed-length arrays with specific type positions
 
+### [TypeScript Classes](markdown/classes.md)
+Comprehensive guide to classes in TypeScript including:
+- **Class Members**: Fields, constructors, methods, and accessors with type annotations
+- **Class Heritage**: Interface implementation with `implements` and inheritance with `extends`
+- **Visibility Modifiers**: Public, protected, and private access control
+- **Static Members**: Class-level properties and methods
+- **Generic Classes**: Type-parameterized classes for reusable logic
+- **Parameter Properties**: Constructor parameter shortcuts with visibility modifiers
+- **Initialization Order**: Understanding class hierarchy initialization sequence
+
 ## 🚀 Getting Started
 
 To compile TypeScript files, use the TypeScript compiler:

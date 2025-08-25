@@ -77,6 +77,7 @@ actOnCallFunction(greaterThan10);
 function actOnConstructFunction(constructor) {
     const obj = new constructor(10);
     console.log(`We created an object with a num property of ${obj.num}`);
+    return obj;
 }
 // `T` is a *type parameter* that links the input and output of this function
 function firstElement(array) {
@@ -96,4 +97,7 @@ let fn = function (a) {
     // @ts-expect-error
     return a;
 };
+let s = "Hello World!";
+let u = "I am alive!";
+console.log(`String '${u}' is of type ${typeof s}`);
 //# sourceMappingURL=examples.js.map

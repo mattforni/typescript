@@ -76,3 +76,54 @@ function setPosition(position: Position) {
 setPosition("left") // Totally valid
 setPosition("centre") // Definitely not valid
 ```
+
+# Covariance and Contravariance
+Covariance and contravariance are type theory terms that describe the relationship between two generic types.
+
+## Covariance
+Covariance describes the ability to use a more specific class that produces a more specific class where a less-specific product class is expected. Assuming there is an interface that represents an object that can `make` a certain type:
+
+```js
+interface Producer<T> {
+  make(): T;
+}
+```
+
+We can use a `Producer<Cat>` where a `Producer<Animal>` is expected since a `Cat` is an `Animal`.
+
+## Contravariance
+Conversely, if we have an interface that can `consume` a certain type, we can use a less specific type wherever the more generic type is expected:
+
+```js
+interface Consumer<T> {
+  consume: (arg: T) => void;
+}
+```
+
+Then we can use a `Consumer<Animal>` where a `Consumer<Cat>` is expected, because any function capable of accepting an `Animal` must also accept a `Cat`.
+
+# The `keyof` Type Operator
+The `keyof` operator take an object type and produces a string or numeric literal union of it's keys.
+
+```js
+type Point = { x: number, y: number };
+type P = keyof Point; // type P: "x" | "y"
+
+type Arrayish = { [n: number]: unknown };
+type A = keyof Arrayish; // type A: number
+
+type Mapish = { [k: string]: boolean };
+type M = keyof Mapish; // type M: string | number
+```
+
+Note that `M` is `string | number`. This is because JavaScript object keys are always coerced to strings.
+
+# The `typeof` Type Operator
+JavaScript already provides a `typeof` operator that can be used on values in an *expression*, but TypeScript adds a `typeof` operator that can be used in a *type* context to refer to the `type` of a variable or property.
+
+
+```js
+let t = typeof "Hello World!"; // This is the JavaScript form
+let s = "Hello World!";
+let u: typeof s = "I am alive!"; // TypeScript form
+```
